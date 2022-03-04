@@ -22,12 +22,12 @@ function addFruitToDb(database, fruit) {
 
 // Removes obj/fruit from database depending on its name
 function DelFruitById(fruits, id) {
-    for (let i = 0; i < fruits.length; i ++){
+    for (let i = 0; i < fruits.length; i++) {
         let fruit = fruits[i];
        // fruit in our loop
         if (fruit.id == id) {
           // remove with splice
-            fruits,splice(i, 1);
+            fruits.splice(i, 1);
             return;
         }
     }
@@ -42,7 +42,7 @@ function getFruitsByCountry(fruits, country){
 
     for (let fruit of fruits) {
         if (fruit.country.toLowerCase() == country.toLowerCase()) {
-
+            FruitsByCountry.push(fruit);
     }
   }
     return FruitsByCountry;
@@ -74,7 +74,7 @@ function FruitRendering(fruit){
     <div><li></li>${fruit.name}</div>
     <div>${fruit.color}</div>
     <div>${fruit.country}</div>
-    <div>${fruit.day}</div>
+    <div>${fruit.day}+</div>
     <button class="button-remove" type="button">Remove</button>
     
     `;
@@ -134,7 +134,7 @@ function FruitSubmit(event){
 
 
 // Add fruit button with event handler
-function FruitHandler(){
+function FruitHandler() {
     let form = document.getElementById("fruit-form");
     form.addEventListener("submit", FruitSubmit); 
 } 
@@ -147,26 +147,33 @@ function RemoveFruitClick(fruiterer) {
 // uses the global variable db
     DelFruitById(database, id);
 // re-rendering without new fruit
-    FruitRendering(database);
-
+    FruitRenderings(database);
     return confirm("Are you sure sir? Do you really want to delete?");
 } 
 
 
-// filtering fruits by country get country and render
-function RemoveFruitHandlers(event) {
+// click event handler to remove buttons
+function RemoveFruitHandlers() {
+    let buttons = document.querySelectorAll(".fruit button");
+
+    for (let button of buttons) {
+        button.addEventListener("click", RemoveFruitClick);
+    }
+} 
+
+
+function FilterFruitByCountry(event) {
     event.preventDefault();
     let country = document.getElementById("filter-country").value;
     let fruits = getFruitsByCountry(database, country);
     FruitRenderings(fruits);
-} 
+}
 
 
 
 
-
-// filtering fruits by country get country and day 
-function FilterByFruitDays(event){
+// filtering fruits by day 
+function FilterByFruitDays(event) {
     event.preventDefault();
     let day = document.getElementById("filter-day").value;
     let fruits = FruitsByDays(database, day);
@@ -179,5 +186,18 @@ function ShowOnClick() {
     FruitRenderings(database);
 }
 
+function filterFruitsHandler() {
+    let countryFruit = document.getElementById("filter-by-country");
+    let dayFruit = document.getElementById("filter-by-day");
+    let showFruits = document.getElementById("show-fruits");
+   
+    countryFruit.addEventListener("submit", FilterFruitByCountry);
+    dayFruit.addEventListener("submit", FilterByFruitDays);
+    showFruits.addEventListener("click", ShowOnClick);
 
+} 
+
+// installing the page
 FruitRenderings(database);
+FruitHandler();
+filterFruitsHandler();

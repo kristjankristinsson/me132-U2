@@ -71,7 +71,7 @@ function FruitRendering(fruit){
 
     div.innerHTML = `
     
-    <div>${fruit.name}</div>
+    <div><li></li>${fruit.name}</div>
     <div>${fruit.color}</div>
     <div>${fruit.country}</div>
     <div>${fruit.day}</div>
@@ -96,6 +96,26 @@ function FruitRenderings(fruits){
         let fruitElement = FruitRendering(fruit);
         fruitsElement.appendChild(fruitElement);
     }
-    // 
+    // Remove-handlers for fruit
     RemoveFruitHandlers();
+} 
+
+
+
+
+function FruitSubmit(event){
+
+    // not sending us to new page
+    event.preventDefault();
+    let name = document.getElementById("name").value;
+    let color = document.getElementById("color").value;
+    let country = document.getElementById("country").value;
+    let day = Number(document.getElementById("day").value);
+
+    //Fruit validator kollar så att det finns text i alla forms
+
+    if (name, color, country, day == 0){
+        alert("Please, fill all the following fields Name, Color, Country, Day");
+        return false;
+    }
 } 

@@ -146,11 +146,13 @@ function FruitHandler() {
 function RemoveFruitClick(fruiterer) {
     let button = fruiterer.target;
     let id = button.parentElement.id;
+    if (confirm("Are you sure sir? Do you really want to delete?") == true) {
 // uses the global variable db
     DelFruitById(database, id);
+    } else return false;
 // re-rendering without new fruit
     FruitRenderings(database);
-    return confirm("Are you sure sir? Do you really want to delete?");
+    
 } 
 
 

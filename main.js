@@ -186,6 +186,7 @@ function ShowOnClick() {
     FruitRenderings(database);
 }
 
+// fruit handler for buttons and event listener
 function filterFruitsHandler() {
     let countryFruit = document.getElementById("filter-by-country");
     let dayFruit = document.getElementById("filter-by-day");

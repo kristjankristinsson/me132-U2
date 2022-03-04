@@ -63,7 +63,7 @@ function FruitsByDays(fruits, day){
 } 
 
 
-
+// Rendering array of fruits in html
 function FruitRendering(fruit){
     let div = document.createElement("div");
     div.classList.add("fruit");
@@ -80,5 +80,22 @@ function FruitRendering(fruit){
     `;
 
     return div;
-    
+
+} 
+
+
+
+
+
+// Rendering array of fruits in html
+function FruitRenderings(fruits){
+    let fruitsElement = document.getElementById("fruits");
+    fruitsElement.innerHTML = "";
+    // checking all the fruits and inserting.
+    for(let fruit of fruits) {
+        let fruitElement = FruitRendering(fruit);
+        fruitsElement.appendChild(fruitElement);
+    }
+    // 
+    RemoveFruitHandlers();
 } 

@@ -1,5 +1,6 @@
 body {
   margin: 0 auto;
+  max-width: 1200px;
   background: rgb(255, 255, 255);
   background: linear-gradient(
     90deg,
@@ -17,4 +18,68 @@ h1 {
 h2 {
   font-size: 8px;
   font-family: "Abel", sans-serif;
+}
+
+#fruit-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 100px 60px;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid grey;
+}
+
+#filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+#head {
+  display: grid;
+  padding: 10px 10px;
+  background: rgb(255, 126, 233);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#fruits {
+  background: rgb(127, 243, 127);
+  padding: 5px;
+}
+
+.fruit {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 15px 25px;
+  margin-right: -5px;
+}
+
+.fruit div {
+  border-bottom: 5px rgb(255, 214, 214) solid;
+}
+
+.button-remove {
+  background-color: grey;
+  position: absolute;
+  right: 90px;
+  margin-top: -5px;
+  z-index: 9999;
+}
+
+#filter-by-country {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+#filter-by-day {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.main {
+  margin-left: -45px;
+  position: relative;
 }

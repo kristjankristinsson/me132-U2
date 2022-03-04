@@ -161,7 +161,7 @@ function RemoveFruitHandlers() {
     }
 } 
 
-
+// filter the fruit by country
 function FilterFruitByCountry(event) {
     event.preventDefault();
     let country = document.getElementById("filter-country").value;
@@ -179,7 +179,7 @@ function FilterByFruitDays(event) {
     let fruits = FruitsByDays(database, day);
     FruitRenderings(fruits);
 } 
-
+// render shows all selections again
 function ShowOnClick() {
     document.getElementById("filter-country").value = "";
     document.getElementById("filter-day").value = "";

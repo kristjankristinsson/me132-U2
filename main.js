@@ -1,6 +1,8 @@
 "use strict";
 
 
+// repository: https://github.com/kristjankristinsson/me132-U2.git
+
 // Creating a fruit and returning it.
 function NewFruit(name, color, country, day){
     let fruit = {

@@ -58,7 +58,7 @@ let database = [
         id: 8,
         name: "Cherries",
         color: "Red",
-        country: "Isreal",
+        country: "Israel",
         day: 4
     },
     {

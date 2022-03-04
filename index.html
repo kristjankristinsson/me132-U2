@@ -21,4 +21,33 @@
    <input id="country" type="text" placeholder="Country">
    <input id="day" type="text" placeholder="Day">
 </form>
-    
+
+<div id="filters">
+    <form id="filter-by-country">
+        <input id="filter-country" type="text" placeholder="Filter by Country">
+        <button>Filter</button>
+    </form>
+
+    <form id="filter-by-day">
+        <input id="filter-day" type="number" placeholder="Filter by day">
+        <button>Filter</button>
+    </form>
+
+    <button id="show-fruits" type="button">Show fruits</button>
+    </div>
+
+
+    <div id="head">
+        <div>Fruit Name</div>
+        <div>Fruit color</div>    
+        <div>Imported from</div>
+        <div>Days in Storage</div>
+    </div>
+
+    <div id="fruits"></div>
+
+    <script src="database.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

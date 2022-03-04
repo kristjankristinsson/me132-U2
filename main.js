@@ -161,3 +161,23 @@ function RemoveFruitHandlers(event) {
     FruitRenderings(fruits);
 } 
 
+
+
+
+
+// filtering fruits by country get country and day 
+function FilterByFruitDays(event){
+    event.preventDefault();
+    let day = document.getElementById("filter-day").value;
+    let fruits = FruitsByDays(database, day);
+    FruitRenderings(fruits);
+} 
+
+function ShowOnClick() {
+    document.getElementById("filter-country").value = "";
+    document.getElementById("filter-day").value = "";
+    FruitRenderings(database);
+}
+
+
+FruitRenderings(database);

@@ -102,7 +102,7 @@ function FruitRenderings(fruits){
 
 
 
-
+// when fruit-form is submitted
 function FruitSubmit(event){
 
     // not sending us to new page
@@ -118,4 +118,46 @@ function FruitSubmit(event){
         alert("Please, fill all the following fields Name, Color, Country, Day");
         return false;
     }
+
+    let fruit = NewFruit(name, color, country, day);
+    // calculates new fruit id
+    fruit.id = database[database.length - 1].id + 1;
+
+    addFruitToDb(database, fruit)
+    FruitRenderings(database);
+
+
+    // reset all form fields on click
+    let form = document.getElementById("fruit-form");
+    form.reset();
 } 
+
+
+// Add fruit button with event handler
+function FruitHandler(){
+    let form = document.getElementById("fruit-form");
+    form.addEventListener("submit", FruitSubmit); 
+} 
+
+
+// click to remove fruit
+function RemoveFruitClick(fruiterer) {
+    let button = fruiterer.target;
+    let id = button.parentElement.id;
+// uses the global variable db
+    DelFruitById(database, id);
+// re-rendering without new fruit
+    FruitRendering(database);
+
+    return confirm("Are you sure sir? Do you really want to delete?");
+} 
+
+
+// filtering fruits by country get country and render
+function RemoveFruitHandlers(event) {
+    event.preventDefault();
+    let country = document.getElementById("filter-country").value;
+    let fruits = getFruitsByCountry(database, country);
+    FruitRenderings(fruits);
+} 
+
